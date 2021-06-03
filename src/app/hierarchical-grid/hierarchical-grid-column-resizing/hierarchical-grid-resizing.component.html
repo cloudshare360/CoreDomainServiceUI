@@ -1,0 +1,28 @@
+<div class="grid__wrapper">
+    <igx-hierarchical-grid igxPreventDocumentScroll class="hierarchicalGrid" [data]="localdata" (columnResized)="onResize($event)" [autoGenerate]="false"
+        [height]="'480px'" [width]="'100%'" [rowHeight]="'65px'" #hierarchicalGrid>
+        <igx-column field="name" header="Sponsor Name" [resizable]="true"></igx-column> 
+        <igx-column field="version" header="Version"[resizable]="true"  [formatter]="formatter"></igx-column>       
+        <igx-row-island [key]="'plans'" [autoGenerate]="false">
+            <igx-column field="name" header="Plan Name" [resizable]="true"></igx-column>
+            <igx-column field="version" header="Version" [resizable]="true"></igx-column>
+        <igx-row-island [key]="'participants'" [autoGenerate]="false">
+                <igx-column field="firstName" header="First Name" [resizable]="true"></igx-column>
+                <igx-column field="lastName" header="Last Name" [resizable]="true"></igx-column>
+                <igx-column field="version" header="Version"[resizable]="true"></igx-column>
+                <igx-column field="Totalcurrentbalance" header="Total Current Balance"[resizable]="true"></igx-column>
+                <igx-row-island [key]="'currentBalances'" [autoGenerate]="false">
+                    <igx-column field="version" header="Version" [resizable]="true"></igx-column>
+                    <igx-column field="amount" header="Ammount" [resizable]="true"></igx-column>
+                    <igx-column field="percentage" header="Percentage"  [resizable]="true"></igx-column>
+                    <igx-column field="instrument" header="Instrument" [resizable]="true"></igx-column>
+                </igx-row-island>
+                <igx-row-island [key]="'portfolioAllocations'" [autoGenerate]="false">
+                    <igx-column field="version" header="Version"  [resizable]="true"></igx-column>
+                    <igx-column field="percentage" header="Percentage"  [resizable]="true"></igx-column>
+                    <igx-column field="instrument" header="Instrument" [resizable]="true"></igx-column>
+                </igx-row-island>
+        </igx-row-island>
+        </igx-row-island>
+    </igx-hierarchical-grid>
+    </div>
